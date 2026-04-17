@@ -1,0 +1,252 @@
+:root {
+    --primary: #6366f1;
+    --secondary: #a855f7;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --slate-400: #94a3b8;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigasi --- */
+nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 1.5rem 10%;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+    color: var(--light); text-decoration: none;
+    font-size: 0.9rem; font-weight: 500; transition: 0.3s;
+}
+.nav-links a:hover { color: var(--primary); }
+
+/* --- Global Section --- */
+section { padding: 120px 10% 80px; min-height: 100vh; }
+
+.section-title {
+    font-size: 2.5rem; 
+    font-weight: 800; 
+    margin-bottom: 3rem;
+    text-align: center; 
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    
+    /* Bagian yang tadi salah */
+    -webkit-background-clip: text; 
+    background-clip: text; /* Tambahkan ini juga untuk kompatibilitas */
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- 1. Beranda (Hero) --- */
+#beranda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1e1b4b 0%, var(--dark) 100%);
+}
+
+.photo-container {
+    margin-top: 2rem;
+}
+
+.photo-container img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+#beranda h1 { font-size: 3.5rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+#beranda p { font-size: 1.1rem; color: var(--slate-400); max-width: 650px; }
+
+/* --- 2. Tentang Saya --- */
+#tentang { background: var(--glass); }
+.about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: start; }
+
+.skill-tag {
+    display: inline-block; padding: 5px 15px; background: rgba(99, 102, 241, 0.1);
+    color: var(--primary); border: 1px solid var(--primary);
+    border-radius: 20px; font-size: 0.8rem; margin: 5px;
+}
+
+/* --- 3. Pendidikan --- */
+.timeline { border-left: 2px solid var(--primary); padding-left: 20px; margin-left: 20px; }
+.timeline-item { margin-bottom: 30px; position: relative; }
+.timeline-item::before {
+    content: ''; position: absolute; left: -31px; top: 5px;
+    width: 20px; height: 20px; background: var(--dark);
+    border: 3px solid var(--secondary); border-radius: 50%;
+}
+
+/* --- 4. Project & Cards --- */
+.grid-project { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card {
+    background: var(--glass); border: 1px solid var(--glass-border);
+    padding: 2rem; border-radius: 20px; transition: 0.3s;
+}
+.card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(255,255,255,0.05); }
+
+/* --- 5. Kontak --- */
+.contact-box {
+    max-width: 600px; margin: 0 auto; text-align: center;
+    padding: 3rem; background: var(--glass); border-radius: 30px;
+    border: 1px solid var(--glass-border);
+}
+
+/* --- Responsif --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    #beranda h1 { font-size: 2.2rem; }
+    .photo-container img { width: 150px; height: 150px; }
+}
+/* --- 1. Beranda (Hero) --- */
+#beranda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1e1b4b 0%, var(--dark) 100%);
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1000px; /* Membatasi lebar agar tidak terlalu jauh ke pinggir */
+    text-align: left;  /* Teks menjadi rata kiri agar rapi di samping gambar */
+}
+
+.hero-text h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 0.5rem; 
+    text-transform: uppercase; 
+}
+
+.hero-text p { 
+    font-size: 1.1rem; 
+    color: var(--slate-400); 
+    max-width: 500px; 
+}
+
+.photo-container {
+    margin-top: 0; /* Menghilangkan margin top yang tadi */
+}
+
+.photo-container img {
+    width: 250px; /* Ukuran sedikit diperbesar agar proporsional */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+/* --- Tambahan Responsif --- */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column-reverse; /* Gambar jadi di atas teks saat di HP */
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .hero-text p {
+        max-width: 100%;
+    }
+}
+
+/* Mengatur grid sertifikat menjadi 2 kolom */
+#sertifikat .grid-project {
+    display: grid;
+    /* Membuat 2 kolom dengan ukuran yang sama besar */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px; /* Jarak antar kartu sertifikat */
+    max-width: 100%; /* Membatasi lebar agar tidak terlalu melar ke samping */
+    margin: 0 auto; /* Mengetengahkan seluruh grid */
+}
+
+/* Memastikan gambar sertifikat proporsional */
+.cert-img-container {
+    height: 200px; /* Kamu bisa sesuaikan tinggi ini */
+    overflow: hidden;
+}
+
+.cert-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar memenuhi kotak tanpa gepeng */
+}
+
+/* Responsif: Jika dibuka di HP, balikkan menjadi 1 kolom saja */
+@media (max-width: 768px) {
+    #sertifikat .grid-project {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Style Tambahan Projek --- */
+.project-card {
+    padding: 0; /* Menghilangkan padding card agar gambar menyentuh tepi */
+    display: flex;
+    grid-row-end : repeat(3, 1fr);
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar akan memenuhi area tanpa merusak rasio */
+    transition: transform 0.5s ease;
+}
+
+/* Efek zoom saat kartu di-hover */
+.project-card:hover .project-img img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: var(--slate-400);
+}
