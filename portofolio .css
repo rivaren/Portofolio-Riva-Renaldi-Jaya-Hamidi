@@ -250,3 +250,128 @@ section { padding: 120px 10% 80px; min-height: 100vh; }
     font-size: 0.9rem;
     color: var(--slate-400);
 }
+
+
+.btn-custom {
+    background: var(--accent-gradient);
+    border: none;
+    color: rgb(255, 255, 255);
+    padding: 12px 35px;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.project-card {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-family: sans-serif;
+    max-width: 400px;
+}
+
+.btn-lihat {
+    background: linear-gradient(to right, #00d2ff, #928dab);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-lihat:hover {
+    opacity: 0.8;
+}
+/* Container Utama */
+.grid-project {
+    display: grid;
+    /* Tampilan Desktop: 3 kolom sama rata */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px; /* Jarak antar kartu */
+    padding: 20px 0;
+}
+
+/* Styling Kartu */
+.project-card {
+    background: #1e1b4b;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+/* Efek saat mouse diarahkan ke kartu */
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Mengatur Gambar */
+.project-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Gambar tidak akan gepeng */
+    display: block;
+}
+
+/* Area Informasi Teks */
+.project-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1; /* Supaya area info mengisi sisa kartu */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.project-info p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Styling Tombol */
+.btn-lihat {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Ganti warna sesuai tema kamu */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-lihat:hover {
+    background-color: #0056b3;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (Layar di bawah 1024px): Jadi 2 kolom */
+@media (max-width: 1024px) {
+    .grid-project {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* HP (Layar di bawah 650px): Jadi 1 kolom */
+@media (max-width: 650px) {
+    .grid-project {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-img img {
+        height: 180px; /* Gambar sedikit lebih kecil di HP */
+    }
+}
